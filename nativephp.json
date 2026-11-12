@@ -1,0 +1,27 @@
+{
+    "name": "pteal79/image-resize",
+    "version": "1.0.0",
+    "description": "Shrink a JPEG, PNG or HEIC photo to a maximum long edge and save it as a JPEG",
+    "namespace": "ImageResize",
+    "keywords": ["image", "resize", "jpeg", "heic", "compress"],
+    "category": "utilities",
+    "license": "MIT",
+    "platforms": ["android", "ios"],
+    "bridge_functions": [
+        {
+            "name": "ImageResize.Resize",
+            "android": "com.pteal79.plugins.imageresize.ImageResizeFunctions.Resize",
+            "ios": "ImageResizeFunctions.Resize",
+            "description": "Scale an image down to a maximum long edge and write it as a JPEG"
+        }
+    ],
+    "events": [],
+    "android": {
+        "min_version": 26,
+        "permissions": []
+    },
+    "ios": {
+        "min_version": "18.2",
+        "info_plist": {}
+    }
+}
