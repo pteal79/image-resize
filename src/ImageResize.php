@@ -71,6 +71,14 @@ class ImageResize
             );
         }
 
-        return ResizedImage::fromArray($decoded['data'] ?? $decoded);
+        $data = $decoded['data'] ?? $decoded;
+
+        // A bridge with nothing behind it (a muted dev bridge, say) answers
+        // with an empty success; that wrote nothing, so it isn't a result.
+        if (! is_array($data) || empty($data['path'])) {
+            throw new ImageResizeException('The device did not return a resized image.');
+        }
+
+        return ResizedImage::fromArray($data);
     }
 }
